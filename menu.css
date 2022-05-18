@@ -1,0 +1,32 @@
+#menuContainer {
+  display: grid;
+  position: absolute;
+  z-index: 999999;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid #d3d3d3;
+  text-align: center;
+}
+
+.menuImg {
+  cursor: pointer;
+  padding-right: 20px;
+  margin: 0 0 0 auto;
+}
+
+.inline-elem {
+  display: inline-flex;
+}
+
+.menuText {
+  padding-right: 6px;
+  padding-left: 6px;
+}
+
+#menuHeader {
+  margin-bottom: 5px;
+  padding: 10px;
+  cursor: move;
+  z-index: 10;
+  background-color: #2196F3;
+  color: #fff;
+}
