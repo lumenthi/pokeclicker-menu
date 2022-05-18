@@ -2,7 +2,7 @@
 	"manifest_version": 3,
 	"name": "Pokeclicker Menu",
 	"version": "1.0.0",
-	"description": "https://github.com/lumenthi",
+	"description": "https://github.com/lumenthi/pokeclicker-menu",
 	"icons": {
 		"16":"icon.png",
 		"48":"icon.png",
