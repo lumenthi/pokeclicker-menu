@@ -78,7 +78,10 @@ function onlyShinies() {
 		App.game.shinies = 0;
 
 	if (App.game.shinies == 0) {
-		PokemonFactory.generateShiny=function(chance,skipBonus=false){return true;};
+		PokemonFactory.generateShiny=function(chance, skipBonus = false) {
+			App.game.oakItems.use(OakItemType.Shiny_Charm);
+			return true;
+		}
 		App.game.shinies = 1;
 		Notifier.notify({message: 'MENU ACTIVATED',
                 	type: NotificationConstants.NotificationOption.success,
@@ -87,7 +90,7 @@ function onlyShinies() {
 		);
 	}
 	else {
-		PokemonFactory.generateShiny=function(chance, skipBonus = false) {const bonus=skipBonus?1:App.game.multiplier.getBonus('shiny');if (Rand.chance(chance/bonus)){App.game.oakItems.use(OakItemType.Shiny_Charm);return true;}return false;}
+		PokemonFactory.generateShiny=function(chance, skipBonus = false){const bonus=skipBonus?1:App.game.multiplier.getBonus('shiny');if (Rand.chance(chance/bonus)){App.game.oakItems.use(OakItemType.Shiny_Charm);return true;}return false;}
 		App.game.shinies = 0;
 		Notifier.notify({message: 'MENU DEACTIVATED',
                 	type: NotificationConstants.NotificationOption.danger,
@@ -121,7 +124,6 @@ function alwaysCatch() {
 	}
 }
 
-
 function oneShotClick() {
 	if (typeof App.game.shotClick == 'undefined')
 		App.game.shotClick = 0;
@@ -151,7 +153,14 @@ function autoClick() {
 		App.game.autoClick = 0;
 
 	if (App.game.autoClick == 0) {
-		App.game.intervalId = window.setInterval(function(){Battle.clickAttack();}, 100);
+		var intervalId = window.setInterval(function(){
+			if (player._route() > 0)
+				Battle.clickAttack();
+			else if (typeof dungeonList[player._townName] !== 'undefined' && typeof DungeonRunner.map !== 'undefined')
+				DungeonRunner.handleClick();
+			else
+				GymBattle.clickAttack();
+		}, 75);
 		App.game.autoClick = 1;
 		Notifier.notify({message: 'MENU ACTIVATED',
                 	type: NotificationConstants.NotificationOption.success,
