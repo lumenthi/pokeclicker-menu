@@ -153,7 +153,7 @@ function autoClick() {
 		App.game.autoClick = 0;
 
 	if (App.game.autoClick == 0) {
-		var intervalId = window.setInterval(function(){
+		App.game.intervalId = window.setInterval(function(){
 			if (player._route() > 0)
 				Battle.clickAttack();
 			else if (typeof dungeonList[player._townName] !== 'undefined' && typeof DungeonRunner.map !== 'undefined')
