@@ -1,5 +1,5 @@
 # Chrome extension for Pokeclicker
-Pokeclicker menu with some QOL tools along with cheat/debug functions
+Pokeclicker menu with QOL tools along with some cheat/debug functions
 
 ## Installation
 ![installation demo](demo/installation.gif)
@@ -23,4 +23,22 @@ Use debug functions from the game (cheating)
 
 ### Quality of life tools
 - **Autoclick**
-  - 
+  - Automatically click on on-screen Pokemons to maximise DPS
+  - It click on dialogs in dungeons too (chests, fight boss)
+  - Can be combined with all features (1Shot click, Dungeon Farm, Gym Farm...)
+  - Chrome windows doesn't have to be focused
+  - Removes timer when catching Pokemons while autoclick is active
+  - Click again to disable
+- **Gym Farm**
+  - Start a trainer then click on *Gym Farm*, the fight will loop until the button is pressed again
+  ![gym_farm demo](demo/gym-farm.gif)
+- **Dungeon Farm**
+  - Click on a dungeon then use the *Dungeon Farm* button, your character will enter the dungeon then move automatically until the dungeon is completed
+  - The tools will complete every tiles in this order: monsters->chests->boss
+  - Once the tool is activated, the dungeon will loop until the button is pressed again
+  ![dungeon_farm demo](demo/dungeon-farm.gif)
+- **Auto Eggs**
+  - This tool will take care of your eggs and always prioritize the first Pokemons in your selected order
+  - Be sure to select the right order for your eggs (in your hatchery->sort->'your desired sorting order')
+  - Deactivate this option by clicking on the button again
+  ![egg_farm demo](demo/auto-breeding.gif)
